@@ -63,7 +63,13 @@ $superheroes = [
   ], 
 ];
 
+/*echo $_GET["query"];*/
+
 ?>
+
+
+
+
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
