@@ -1,22 +1,26 @@
 window.onload = function() {
-        var button = document.getElementById("btn");
+    var button = document.getElementById("btn");
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        var q = document.getElementById("query").value;
         var httpRequest = new XMLHttpRequest();
-        var url = "superheroes.php";
-        button.addEventListener("click", function(e) {
-            e.preventDefault();
-            httpRequest.onreadystatechange = request();
-            httpRequest.open('GET', url);
-            httpRequest.send();
-        });
-
-        function request() {
+        var url = "superheroes.php?q=" + q;
+        httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     var response = httpRequest.responseText;
-                    alert(response);
-                } else { alert('There was a problem with the request.'); }
+                    console.log(response);
+                    var inputmessage = document.getElementById("result");
+                    inputmessage.innerHTML = response;
+                } else {
+
+                    alert('There was a problem with the request.');
+                }
             }
         }
-    }
-    /*var url = "superheroes.php?query=" + inputmessage; 
-    var inputmessage = document.getElementById("query");*/
+        httpRequest.open('GET', url, true);
+        httpRequest.send();
+
+    });
+
+}

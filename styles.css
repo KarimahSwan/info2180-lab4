@@ -10,16 +10,16 @@ body {
     width: 100%;
 }
 
-.container p {
-    font-size: 15px;
-    padding-bottom: 10px;
-}
-
-center h1 {
+.header {
     background-color: rgb(105, 149, 190);
     padding: 35px;
-    width: 1200px;
+    width: 100%;
     color: white;
+    text-align: center;
+}
+
+form {
+    display: inline;
 }
 
 .btn {
@@ -30,20 +30,13 @@ center h1 {
     text-align: center;
     color: white;
     border: none;
-}
-
-.input-box {
-    display: inline;
+    font-weight: bold;
 }
 
 input {
     width: 700px;
     height: 35px;
     border-radius: 5px;
-}
-
-h1 {
-    padding-bottom: 10px;
 }
 
 hr {
@@ -56,16 +49,6 @@ hr {
     border-width: 1px;
 }
 
-
-/*.btn {
-    background-color: white;
-    border: 2px solid #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+#result h5 {
+    color: red;
 }

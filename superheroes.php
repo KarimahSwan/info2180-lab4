@@ -17,11 +17,12 @@ $superheroes = [
       "id" => 3,
       "name" => "Peter Parker",
       "alias" => "Spiderman",
-      "biography" => "Bitten by a radioactive spider, Peter Parker’s arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles.",
+      "biography"=> "Bitten by a radioactive spider, Peter Parker’s arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles.",
   ],
   [
+
       "id" => 4,
-      "name" => "Carol Danvers",
+      "name"=>"Carol Danvers",
       "alias" => "Captain Marvel",
       "biography" => "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.",
   ],
@@ -63,16 +64,33 @@ $superheroes = [
   ], 
 ];
 
-/*echo $_GET["query"];*/
 
+$q=$_GET["q"];
+$q = filter_input(INPUT_GET, "q", FILTER_SANITIZE_STRING);
+
+$response="";
+
+if (strlen($q)>0){
+    $line="<h5>SUPERHERO NOT FOUND.</h5>";
+    foreach($superheroes as $superhero){
+        if($q===$superhero["alias"] || $q===$superhero["name"]){
+            $line= "<h3>".$superhero["alias"]."</h3>"."<h4>".$superhero["name"]."</h4>"."<p>".$superhero["biography"];
+
+        }
+    }
+}
+$response=$line;
 ?>
 
+<?php if(strlen($response)>0): 
+    echo $response;
+endif; ?>
 
 
-
-
+<?php if(strlen($response)===0): ?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php endif; ?>

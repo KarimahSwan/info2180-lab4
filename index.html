@@ -8,22 +8,21 @@
     <title>Lab 4</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js"></script>
-    <center>
-        <h1>AVENGERS CHARACTER SEARCH</h1>
-    </center>
 </head>
 
 <body>
+    <div class="header">
+        <h1 class="search">AVENGERS CHARACTER SEARCH</h1>
+    </div>
     <div class=container>
         <p>Search by Full Name or Alias</p>
-        <div class="input-box">
+        <form>
             <input type="text" name="query" id="query" placeholder="eg. Captain America or Steve Rogers">
-        </div>
-        <button type="submit" id="btn" class="btn">Search</button>
-        <div>
-            <h1>RESULT</h1>
-        </div>
+            <button type="submit" id="btn" class="btn">Search</button>
+        </form>
+        <h1 class="result">RESULT</h1>
         <hr>
+        <div id="result"></div>
     </div>
 
 </body>
